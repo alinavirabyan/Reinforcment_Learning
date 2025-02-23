@@ -136,7 +136,7 @@ def play():
         elif winner == -1:
             print('RL player won!')
         else:
-            print('It's a tie!')
+            print('It is a tie!')
 
     # endregion Body
 
