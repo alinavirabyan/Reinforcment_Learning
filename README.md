@@ -1,1 +1,1 @@
-RLLLLLLL
+RL
