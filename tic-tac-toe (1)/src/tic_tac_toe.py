@@ -22,7 +22,7 @@ def train(epochs: int, print_every_n: int = 500):
      player1 = RLPLayer(all_states,epsilion = 0.01)
      player2 = RLPLayer(all_states, epsilion = 0.01)
 
-
+    player1
 
     # Create a judge to organize the game
       judge = Judge(player1, player2)
