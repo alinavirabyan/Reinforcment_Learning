@@ -1,51 +1,43 @@
-# Reinforcement Learning Tic-Tac-Toe
+### 🎮 **Tic-Tac-Toe and Reinforcement Learning – Key Points:**
 
-## Overview
-This project implements a Reinforcement Learning (RL) agent for playing Tic-Tac-Toe. The RL players are trained using a value-based learning approach, and they can compete against each other or play against a human player.
+1. 🟦 **Game Overview**:  
+   Played on a 3x3 board. Two players (X and O) take turns. Win by getting three in a row. A full board with no winner is a draw.
 
-## Features
-- **Train RL players**: Two RL agents learn to play Tic-Tac-Toe using self-play.
-- **Compete**: The trained agents can compete against each other with optimal strategies.
-- **Human vs AI**: A human player can challenge the trained AI.
+2. 🤖 **Assumption for Learning**:  
+   Opponent is imperfect. Only wins matter — draws and losses are equally bad.
 
-## Dependencies
-Ensure you have the following Python packages installed:
-```bash
-pip install numpy
-```
+3. ⚠️ **Challenges with Classical Methods**:  
+   - **Minimax** assumes perfect play — not suitable here.  
+   - **Dynamic Programming** requires full opponent model — impractical.
 
-## Files & Modules
-- `state.py`: Defines board configurations and game states.
-- `player.py`: Implements RL and Human players.
-- `judge.py`: Handles game rules and matches between players.
-- `main.py`: Contains training, competition, and gameplay logic.
+4. 🧬 **Evolutionary Methods (Alternative)**:  
+   - Try many policies (move rules) and evolve better ones.  
+   - Evaluate by game outcomes, not individual moves.
 
-## Usage
-### Train RL Players
-Run the following command to train two RL agents:
-```python
-python main.py
-```
-This trains the players for `100,000` epochs and saves their learned policies.
+5. 🔁 **Reinforcement Learning Approach**:  
+   - Learns value of each board state.  
+   - Value = chance of winning from that state.  
+   - Start: 1 (win), 0 (loss/draw), 0.5 (unknown).  
+   - Learns by playing many games.
 
-### Compete Between Trained RL Players
-Modify `main.py` and call:
-```python
-compete(turns=1000)
-```
-This lets the trained players compete and evaluates their performance.
+6. 🎯 **Move Selection**:  
+   - Mostly **greedy** (choose highest value move).  
+   - Sometimes **exploratory** (random move) to find new paths.
 
-### Play Against AI
-To play against the trained RL agent, modify `main.py` and call:
-```python
-play()
-```
-You will play as the first player against the RL agent playing second.
+7. 📈 **Learning from Moves**:  
+   - After greedy moves, update state values using **Temporal-Difference (TD) Learning**:  
+     `V(St) = V(St) + α [V(St+1) - V(St)]`
 
-## Expected Outputs
-- During training, intermediate win rates of both RL agents are printed.
-- During competition, the win rates of both RL players are displayed.
-- When playing against AI, the game announces if you win, lose, or draw.
+8. 🧪 **Exploratory vs. Greedy Moves**:  
+   - Exploratory = no learning (just trying new moves).  
+   - Greedy = causes learning via updates.
 
+9. 🚀 **Benefits of This Method**:  
+   - Learns optimal play against imperfect opponents.  
+   - Adapts over time.  
+   - No need to model the opponent.
 
+10. 🧠 **Generalization**:  
+    - Works for more complex games too (like backgammon).  
+    - Use neural networks when state space is huge.
 
