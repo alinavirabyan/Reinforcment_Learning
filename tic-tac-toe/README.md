@@ -1,43 +1,9 @@
-### 🎮 **Tic-Tac-Toe and Reinforcement Learning – Key Points:**
+**TIC-TAC-TOE PROBLEM IMPLEMENTATION**
 
-1. 🟦 **Game Overview**:  
-   Played on a 3x3 board. Two players (X and O) take turns. Win by getting three in a row. A full board with no winner is a draw.
+This project implements a reinforcement learning (RL) agent to play the game of Tic-Tac-Toe. The agent learns by playing the game, selecting moves, and adjusting its strategy based on the outcomes (wins, losses, or draws). Initially, the agent doesn't know the optimal moves, but through repeated gameplay, it learns to evaluate board states and select the best moves based on past experiences.
 
-2. 🤖 **Assumption for Learning**:  
-   Opponent is imperfect. Only wins matter — draws and losses are equally bad.
-
-3. ⚠️ **Challenges with Classical Methods**:  
-   - **Minimax** assumes perfect play — not suitable here.  
-   - **Dynamic Programming** requires full opponent model — impractical.
-
-4. 🧬 **Evolutionary Methods (Alternative)**:  
-   - Try many policies (move rules) and evolve better ones.  
-   - Evaluate by game outcomes, not individual moves.
-
-5. 🔁 **Reinforcement Learning Approach**:  
-   - Learns value of each board state.  
-   - Value = chance of winning from that state.  
-   - Start: 1 (win), 0 (loss/draw), 0.5 (unknown).  
-   - Learns by playing many games.
-
-6. 🎯 **Move Selection**:  
-   - Mostly **greedy** (choose highest value move).  
-   - Sometimes **exploratory** (random move) to find new paths.
-
-7. 📈 **Learning from Moves**:  
-   - After greedy moves, update state values using **Temporal-Difference (TD) Learning**:  
-     `V(St) = V(St) + α [V(St+1) - V(St)]`
-
-8. 🧪 **Exploratory vs. Greedy Moves**:  
-   - Exploratory = no learning (just trying new moves).  
-   - Greedy = causes learning via updates.
-
-9. 🚀 **Benefits of This Method**:  
-   - Learns optimal play against imperfect opponents.  
-   - Adapts over time.  
-   - No need to model the opponent.
-
-10. 🧠 **Generalization**:  
-    - Works for more complex games too (like backgammon).  
-    - Use neural networks when state space is huge.
-
+The project consists of the following files:
+1. [tic_tac_toe.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/tic-tac-toe/src/tic_tac_toe.py) - This file contains the main logic of the Tic-Tac-Toe game. It encompasses various functionalities such as training the reinforcement learning agent through self-play or competition, and it allows for human-player interactions. Additionally, it manages the process of choosing moves for the agent, updating the game state, and simulating a full match, while tracking the learning progress over time. It serves as the central script that brings all the components of the game together, making it both a training and a competition environment for the agent.
+2. [state.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/tic-tac-toe/src/state.py) - This file generates all possible states for the Tic-Tac-Toe board, playing a critical role in both the learning and decision-making process of the reinforcement learning agent. It calculates and provides the complete set of board configurations, ensuring that the agent has access to a broad variety of states for exploration. By modeling the states, it enables the agent to learn the consequences of its actions, understand the game dynamics, and discover the optimal strategy based on its experiences.
+3. [player.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/tic-tac-toe/src/player.py) - This file defines the behavior of both the reinforcement learning agent and human players through two distinct classes: RLPlayer and HumanPlayer. The RLPlayer class implements the logic of the agent, incorporating the reinforcement learning algorithms for making decisions, learning optimal strategies, and playing competitively. The HumanPlayer class enables a user to play against the agent or another human, managing human input and interaction with the game. Together, these two classes facilitate both AI-driven and player-driven gameplay, ensuring a versatile and engaging
+4. [judge.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/tic-tac-toe/src/judge.py) - This file is responsible for the management and oversight of the game during each match. It handles the interactions between the two players, ensuring that the rules of Tic-Tac-Toe are followed. The judge.py file evaluates the game state after each move, determines the winner (or detects a draw), and manages the flow of the game, ensuring the proper sequence of turns. It also plays a crucial role in maintaining the integrity of the game by checking if the current move is valid and assessing whether the game has concluded or continues.
