@@ -1,4 +1,4 @@
-**GRIDWORLD IMPLEMENTAYION WITH DYNAMIC PROGRAMMING**
+**GRIDWORLD IMPLEMENTATION WITH DYNAMIC PROGRAMMING**
 
 This project implements the foundational concepts and algorithms of dynamic programming (DP) to solve finite Markov Decision Processes (MDPs). Policy evaluation iteratively calculates the value function for a given policy, while policy improvement derives a better policy based on the current value function. By combining these two processes, the project uses policy iteration and value iteration, which are widely used DP methods for computing optimal policies and value functions. Classical DP methods update state values in sweeps, with each update reflecting the expected value of a state based on the probabilities of its possible successor states. These updates are aligned with Bellman equations, which define the optimality conditions for value functions. Generalized Policy Iteration (GPI) provides the framework for these methods, where policy evaluation and improvement interact until they converge to an optimal policy and value function. The project also explores asynchronous DP methods, where updates occur in a non-sequential order, using out-of-date information and employing bootstrapping to refine estimates based on other estimates.
 
@@ -15,7 +15,7 @@ The project consists of the following main files:
 
 - Lastly, policy iteration is performed, and the optimal policy is derived in just one iteration, showcasing the efficiency of the method.
 
-[grid_world.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/gridworld-dp/src/grid_world.py)
+[grid_world.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/gridworld-dp/src/grid_world.py)
 
 - The code defines a 4x4 grid world where an agent can take four actions: left, up, right, and down, with equal probability for each action.
 
