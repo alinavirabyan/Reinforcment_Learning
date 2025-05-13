@@ -21,7 +21,6 @@ The project consists of the following files:
 
 [random_walk.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/random-walk/src/random_walk.py):
 
-Sure, here's a clean, bulleted explanation without stickers:
 
 1.The code defines a random walk problem with 7 states: two terminal states (0 and 6) and five non-terminal states (1 to 5), with the agent always starting at state 3.
 
