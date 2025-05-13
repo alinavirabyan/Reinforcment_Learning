@@ -1,50 +1,28 @@
-Dynamic programming (DP) methods solve finite Markov Decision Processes (MDPs) using **policy iteration** and **value iteration**.
+**GRIDWORLD IMPLEMENTAYION WITH DYNAMIC PROGRAMMING**
 
-* **Policy evaluation** computes the value function for a given policy, while **policy improvement** updates the policy based on the value function.
-* DP methods update state values using the Bellman equation until convergence, providing optimal policies and value functions.
-* **Generalized Policy Iteration (GPI)** combines policy evaluation and improvement to iteratively improve both the policy and value function, often leading to optimal solutions.
-* **Asynchronous DP methods** update states in arbitrary orders for more efficient computations.
-* **Bootstrapping** updates estimates of state values based on other estimates, a technique also used in reinforcement learning methods.
+This project implements the foundational concepts and algorithms of dynamic programming (DP) to solve finite Markov Decision Processes (MDPs). Policy evaluation iteratively calculates the value function for a given policy, while policy improvement derives a better policy based on the current value function. By combining these two processes, the project uses policy iteration and value iteration, which are widely used DP methods for computing optimal policies and value functions. Classical DP methods update state values in sweeps, with each update reflecting the expected value of a state based on the probabilities of its possible successor states. These updates are aligned with Bellman equations, which define the optimality conditions for value functions. Generalized Policy Iteration (GPI) provides the framework for these methods, where policy evaluation and improvement interact until they converge to an optimal policy and value function. The project also explores asynchronous DP methods, where updates occur in a non-sequential order, using out-of-date information and employing bootstrapping to refine estimates based on other estimates.
 
-Project consist of the following main files:
+The project consists of the following main files:
 
 [grid_world.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/gridworld-dp/notebooks/grid_world.ipynb)
+- The grid_world.ipynb notebook demonstrates value iteration and policy improvement in a 4x4 grid world environment.
+- The agent follows a random policy and computes the state value function using dynamic programming.
+- The notebook compares in-place and out-of-place computations for the state values, showing the number of iterations needed for convergence.
 
+- It visualizes the state-value grid after each iteration to illustrate how the value function evolves.
 
+- The policy improvement section shows how a random policy is improved based on the computed value function.
 
-* **Gridworld Setup**:
+- Lastly, policy iteration is performed, and the optimal policy is derived in just one iteration, showcasing the efficiency of the method.
 
-  * The grid is 4x4 with non-terminal states and 1 terminal state.
-  * There are 4 possible actions per state (up, down, left, right), which move the agent in the corresponding direction, unless the agent would move off the grid, in which case it stays in the same state.
-  * The task is episodic and undiscounted.
-  * The reward is -1 for all transitions until the agent reaches the terminal state.
+[grid_world.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/gridworld-dp/src/grid_world.py)
 
-* **Policy and Evaluation**:
+- The code defines a 4x4 grid world where an agent can take four actions: left, up, right, and down, with equal probability for each action.
 
-  * The agent follows a random policy (equiprobable random choice of actions).
-  * The **value function** is computed iteratively via policy evaluation, showing the expected reward for all states under the current policy.
-  * The final value function represents the negation of the expected number of steps from each state to the terminal state.
+- The is_terminal function checks if the agent has reached the terminal state, located at either the top-left or bottom-right corners.
 
-* **Policy Iteration and Improvement**:
+- The step function computes the next state and reward based on the agent's current state and action, with boundary checks to prevent going off the grid.
 
-  * **Policy Iteration**:
+- The compute_state_value function calculates the state-value function using the Bellman equation, updating state values iteratively until convergence.
 
-    * The left column of the figure shows the sequence of value functions for the random policy.
-    * The right column shows the greedy policies derived from the value functions.
-    * The last policy is an improvement over the random policy, and after a few iterations, the policy is optimal.
-    * The final greedy policy makes moves that minimize the number of steps to reach the terminal state.
-  * **Policy Improvement**:
-
-    * Policy improvement happens when a random policy is updated to a greedy policy based on the value function.
-    * Even though a policy improvement is guaranteed, the new policy may not always be optimal.
-    * In this case, after policy improvement, the new policy is optimal.
-   
-* **Convergence**:
-
-  * Policy iteration converges quickly in this example and finds the optimal policy in just one iteration.
-  * The policy improvement theorem guarantees that the new policies are better than the random policy.
-  * After a few iterations, policy iteration finds the optimal policy that leads to the terminal state in the fewest steps.
-
-   [grid_world.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/gridworld-dp/src/grid_world.py) - This Python code simulates a 4x4 gridworld where an agent moves through different states based on actions like left, up, right, and down. The agent receives a reward of -1 for every move, except when it reaches terminal states at the top-left and bottom-right corners, which provide a reward of 0. The code calculates the state-value function, which represents the expected future rewards from each state, using an iterative policy evaluation method. The agent follows a random policy initially, and the state values are updated until they converge to stable estimates. The program helps in understanding the process of value iteration for a gridworld environment in reinforcement learning.
-
-
+- The draw function visualizes the state-value function as a grid, displaying the computed values for each state in the grid world.
