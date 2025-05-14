@@ -1,6 +1,6 @@
 
 
-###  10-ARMED-TESTBED IMPLEMENTATION
+# 10-ARMED-TESTBED IMPLEMENTATION
 
 This project demonstrates various strategies for solving the **multi-armed bandit problem**, which involves finding the right balance between **exploration** (trying new actions to gain information) and **exploitation** (choosing actions known to give high rewards).
 
