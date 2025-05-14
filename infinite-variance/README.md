@@ -1,4 +1,4 @@
-**INFINITE-VARIANCE IMPLEMENTATION**
+# **INFINITE-VARIANCE IMPLEMENTATION**
 
 The problem involves using importance sampling to estimate the value of a policy in a reinforcement learning (RL) setting. The target policy selects a specific action (left) with a goal of terminating, while the behavior policy selects actions probabilistically (right and left with equal probability). Ordinary importance sampling (OS) struggles with infinite variance and poor convergence in such scenarios, especially when the target policy is off-policy. This code demonstrates the estimation of the policy value using ordinary importance sampling over a large number of episodes and runs.
 
