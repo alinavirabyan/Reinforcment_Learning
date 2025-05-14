@@ -1,4 +1,4 @@
-**GAMBLER PROBLEM IMPLEMENTATION**
+# **GAMBLER PROBLEM IMPLEMENTATION**
 
 The gambler's problem is a classic example in reinforcement learning, where an agent (the gambler) must make decisions to maximize their chance of reaching a goal. It involves balancing risk and reward, as the agent has to decide how much money to bet on each flip. The goal is to find the optimal strategy (policy) for betting that maximizes the likelihood of reaching the target amount, while minimizing the risk of losing everything. This project implements the Gambler’s Problem using Value Iteration.
 
