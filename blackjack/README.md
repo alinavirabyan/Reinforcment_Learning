@@ -1,4 +1,4 @@
-#**BLACKJACK PROBLEM IMPLEMENTATION**
+# **BLACKJACK PROBLEM IMPLEMENTATION**
 
 Monte Carlo methods learn value functions and optimal policies from sample episodes without needing a model of the environment, making them suitable for direct learning from experience. Unlike dynamic programming (DP), they do not bootstrap, meaning they update value estimates based solely on actual returns rather than estimated future values. They support efficient learning in specific state regions, allow for on-policy and off-policy learning, and require strategies to ensure sufficient exploration.
 Monte Carlo methods are often demonstrated using the **game of blackjack**, where they can effectively learn optimal strategies by simulating many episodes and averaging returns for different state–action pairs.
