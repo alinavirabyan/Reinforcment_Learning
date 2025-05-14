@@ -5,7 +5,7 @@ Monte Carlo methods are often demonstrated using the **game of blackjack**, wher
 
 The project consists of the following files:
 
-### [black_jack.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/blackjack/notebooks/black_jack.ipynb)
+ [black_jack.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/blackjack/notebooks/black_jack.ipynb)
 
 1. Defined the Environment
 
@@ -45,7 +45,7 @@ The project consists of the following files:
 - Evaluating the value of a single state: (usable ace, player sum 13, dealer shows 2).
 - Preparing to use importance sampling.
 
-###
+
 [black_jack.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/blackjack/src/black_jack.py)
 
 
