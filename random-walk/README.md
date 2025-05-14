@@ -1,4 +1,4 @@
-**RANDOM WALK IMPLEMENTATION**
+# **RANDOM WALK IMPLEMENTATION**
 
 The Random Walk is a Markov Reward Process (MRP) with a fixed set of states and no actions, used to study prediction tasks in reinforcement learning. It begins from a central state and transitions left or right with equal probability until reaching terminal states at either end. The agent receives +1 reward only when it reaches the right terminal state; otherwise, the reward is 0. Since it's an undiscounted problem, the value of each state is simply the probability of eventually reaching the right terminal state from that state.
 
