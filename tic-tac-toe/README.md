@@ -1,4 +1,4 @@
-**TIC-TAC-TOE PROBLEM IMPLEMENTATION**
+# **TIC-TAC-TOE PROBLEM IMPLEMENTATION**
 
 This project implements a reinforcement learning (RL) agent to play the game of Tic-Tac-Toe. The agent learns by playing the game, selecting moves, and adjusting its strategy based on the outcomes (wins, losses, or draws). Initially, the agent doesn't know the optimal moves, but through repeated gameplay, it learns to evaluate board states and select the best moves based on past experiences.
 
