@@ -1,4 +1,4 @@
-**WINDY-GRIDWORLD IMPLEMENTATION**
+# **WINDY-GRIDWORLD IMPLEMENTATION**
 
 The Windy Gridworld is a grid-based environment where an agent must navigate from a start state to a goal state. Unlike a regular grid, certain columns have a vertical wind effect that pushes the agent upward, making the environment more challenging. The agent receives a reward of -1 for each step until it reaches the goal, encouraging it to find the shortest path. The task is solved using the SARSA algorithm with ε-greedy action selection to learn the optimal path over time.
 
