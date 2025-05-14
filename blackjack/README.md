@@ -5,7 +5,7 @@ Monte Carlo methods are often demonstrated using the **game of blackjack**, wher
 
 The project consists of the following files:
 
-[black_jack.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/blackjack/notebooks/black_jack.ipynb)
+## [black_jack.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/blackjack/notebooks/black_jack.ipynb)
 
 1. Defined the Environment
 
