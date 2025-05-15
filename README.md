@@ -42,4 +42,5 @@ RL has practical applications in fields such as **robotics**, **game AI**, **fin
 7. [Project 7 – Infinite-variance](https://github.com/alinavirabyan/Reinforcment_Learning/tree/main/infinite-variance)
 8. [Project 8 – Random-walk](https://github.com/alinavirabyan/Reinforcment_Learning/tree/main/random-walk)
 9. [Project 9 – Windy-gridworld](https://github.com/alinavirabyan/Reinforcment_Learning/tree/main/windy-gridworld)
+10. [Project 10 – cliff-walking](https://github.com/alinavirabyan/Reinforcment_Learning/tree/main/cliff-walking)
 
