@@ -1,3 +1,4 @@
+#RANDOM-WALK-FA IMPLEMENTATION
 This project explores reinforcement learning using the 1000-state random walk as the environment. It focuses on approximating the value function of states through various methods, including state aggregation, polynomial and Fourier bases, and tile coding. Gradient Monte Carlo and semi-gradient n-step TD algorithms are implemented to update the approximate value functions efficiently. The code evaluates the performance of these methods by measuring RMS errors and comparing approximate values to true state values. Experiments vary parameters such as step sizes, number of episodes, and number of tilings to analyze learning behavior and convergence. Overall, the project demonstrates how different function approximation techniques can generalize learning in large state spaces while balancing accuracy and efficiency.
 
 
@@ -76,5 +77,6 @@ This project explores reinforcement learning using the 1000-state random walk as
 4. The notebook shows how **weights for each tile** are updated using semi-gradient TD methods.
 5. It compares **different numbers of tilings and tile widths** to analyze their effect on learning performance.
 6. Results highlight that **tile coding improves approximation accuracy and learning efficiency** compared to simple state aggregation.
+
 
 
