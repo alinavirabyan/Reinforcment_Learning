@@ -1,4 +1,5 @@
 **RANDOM-WALK-ET**
+
 [random_walk.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/random-walk-et/src/random_walk.py)
 1. This code implements three λ-based value function learning algorithms for a 19-state random walk.
 2. `ValueFunction` is the base class; `OffLineLambdaReturn`, `TemporalDifferenceLambda`, and `OnLineLambdaReturn` are derived classes.
