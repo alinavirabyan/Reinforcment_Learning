@@ -1,66 +1,26 @@
-#  Coarse Coding — Square Wave Example
-
-This project demonstrates the effect of **receptive field size** (feature width) on learning within **coarse coding** using **linear function approximation**.  
-The goal is to learn a **1-dimensional square-wave function** with different receptive field widths and observe how generalization changes.
+**Coarse Coding**
 
 
----
+[classes.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/coarse-coding/src/classes.py)
 
-##  Description
+* Defines an **Interval** class to represent a range and check whether a point lies within it.
+* `ValueFunction` class approximates values using **overlapping feature windows** over a continuous domain.
+* Each feature window is represented by an `Interval` and has an associated **weight**.
+* `value(point)` estimates the value of a point by summing the weights of all **active features** containing it.
+* `update(delta, point)` adjusts the weights of active features for **learning** using a step-size parameter.
 
-This example illustrates the **Coarseness of Coarse Coding** — specifically, how the **width of receptive fields** affects learning and generalization.
+[square_wave.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/coarse-coding/src/square_wave.py)
 
-Linear function approximation is applied to learn a 1D square-wave target function.  
-Each receptive field corresponds to an **interval** (since the input is 1D).  
-The experiment compares **three widths**:
+* Defines a **square wave function** over the domain [0, 2), returning 1 in (0.5, 1.5) and 0 elsewhere.
+* `sample(n)` draws `n` random points from the domain and evaluates the square wave to generate training samples.
+* `approximate(samples, value_function)` trains a `ValueFunction` using the generated samples.
+* Updates are based on the **difference between true square wave values and current VF estimates**.
+* Supports **function approximation with overlapping feature windows** for continuous domains.
 
-- Narrow features → fine, bumpy learning
-- Medium features → balanced generalization
-- Broad features → smooth but slower convergence
+[square_wave.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/coarse-coding/notebooks/square_wave.ipynb)
 
-All configurations use the same feature density (~50 features).
-
----
-
-##  Methodology
-
-- **Algorithm:** Linear function approximation (Equation 9.7)
-- **Feature widths tested:** 0.2, 0.4, 1.0  
-- **Sample sizes:** 10, 40, 160, 640, 2560, 10240  
-- **Training data:** Random samples uniformly distributed across the domain  
-- **Visualization:** Plots of learned functions after training
-
----
-
-## Source Files Overview
-**classes.py**
-
-Defines:
-
-- DOMAIN: defines the range of the function
-
-- ValueFunction: implements the linear approximation based on coarse coding
-
-**square_wave.py**
-
-Includes:
-
-- sample(): generates random training samples
-
-- approximate(): trains a ValueFunction based on provided samples
----
-
-**notebooks/square_wave.ipynb**
-
-The notebook performs the main experiment:
-
-- Loads helper modules from src/.
-
-- Trains three models with different feature widths (0.2, 0.4, 1.0).
-
-- Repeats training for different sample sizes (10 → 10240).
-
-- Plots approximations to visualize the effect of feature coarseness.
-
-> Output plot is saved as:
-  generated_images/figure_9_8.png
+* Demonstrates **coarse coding** and its effect on learning a 1D square-wave function.
+* Uses **linear function approximation** with feature intervals of different widths: narrow, medium, and broad.
+* Training samples are drawn uniformly at random, and step size is adjusted by the number of active features.
+* **Feature width strongly affects early learning**: broad features generalize widely, narrow features produce bumpy approximations.
+* Final learned function is only slightly affected by feature width, showing **receptive field shape affects generalization, not asymptotic solution quality**.
