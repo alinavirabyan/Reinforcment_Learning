@@ -1,85 +1,18 @@
-# Random Walk — Eligibility Traces  
-### Off-line λ-return • TD(λ) • True Online TD(λ)
+**RANDOM-WALK-ET**
+[random_walk.py](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/random-walk-et/src/random_walk.py)
+1. This code implements three λ-based value function learning algorithms for a 19-state random walk.
+2. `ValueFunction` is the base class; `OffLineLambdaReturn`, `TemporalDifferenceLambda`, and `OnLineLambdaReturn` are derived classes.
+3. `OffLineLambdaReturn` updates weights **after each episode** using λ-returns.
+4. `TemporalDifferenceLambda` updates weights **online** using TD error and accumulating eligibility traces.
+5. `OnLineLambdaReturn` implements true online TD(λ) with Dutch traces for more precise updates.
+6. `random_walk` simulates episodes where the agent moves left or right until reaching terminal states (-1 or +1 reward).
+7. `parameter_sweep` tests different λ and α values, calculates RMSE against true state values, and plots learning performance.
 
-This project implements and reproduces experiments from **Chapter 12** of *Sutton & Barto (2018), Reinforcement Learning: An Introduction (2nd Edition)*, focusing on value prediction with **eligibility traces**.  
-The classical **19-state random walk** task is used to compare different λ-based algorithms and analyze their learning behavior under varying parameters.
-
-The primary goals of this project are:
-
-- Implementing off-line λ-return (forward view)
-- Implementing TD(λ) (backward view)
-- Implementing True Online TD(λ) (online λ-return)
-- Running parameter sweeps over α and λ
-- Reproducing Figures **12.3**, **12.6**, and **12.8** from the textbook
-
-
----
-
-##  Background: Eligibility Traces
-
-Eligibility traces provide a bridge between Monte Carlo methods and TD(0).  
-They act as short-term memory, determining how much previous states should be updated based on what happens later in the episode.
-
-This project compares three major approaches:
-
-### **1. Off-line λ-return (Forward View)**
-- Computes the λ-return after the entire episode.
-- Provides the exact forward-view update target.
-- Accurate but computationally expensive for long episodes.
-
-### **2. TD(λ) (Backward View)**
-- Uses accumulating eligibility traces.
-- Updates weights online using the TD error.
-- Efficient but only approximates the forward-view behavior.
-
-### **3. True Online TD(λ)**
-- Implements the corrected “Dutch trace.”
-- Fully online method that matches the forward view for linear function approximation.
-- More stable and accurate during online learning.
-
----
-
-##  Experimental Setup
-
-### **Random Walk Environment**
-- 19 non-terminal states.
-- Terminal states on the left and right.
-- Reward of +1 on the right terminal; 0 elsewhere.
-- Episodes begin in the middle.
-- Each step moves the agent randomly left or right.
-
-### **Experiment Parameters**
-- **Runs:** 50  
-- **Episodes per run:** 10  
-- **Discount factor (γ):** 1.0  
-- **Evaluated λ values:**  
-  0.0, 0.4, 0.8, 0.9, 0.95, 0.975, 0.99, 1.0  
-- **Performance metric:** RMS error between predicted and true values.
-
-### **Figures Produced**
-Saved automatically in `generated_images/`:
-
-
-Each figure plots RMS error versus α for multiple λ values, replicating the textbook’s results.
-
----
-
-##  Implementation Overview
-
-The core implementation resides in `src/random_walk.py`:
-
-- **OffLineLambdaReturn**  
-  Stores transitions and performs updates after episodes.
-
-- **TDLambda**  
-  Classical backward-view algorithm with accumulating traces.
-
-- **TrueOnlineTDLambda**  
-  Implements Dutch traces and online updates consistent with the forward view.
-
-- **parameter_sweep**  
-  Automates running multiple algorithms across different α and λ values and generating the corresponding plots.
-
----
-
-
+[random_walk.ipynb](https://github.com/alinavirabyan/Reinforcment_Learning/blob/main/random-walk-et/notebooks/random_walk.ipynb)
+1. This code compares **off-line λ-return**, **TD(λ)**, and **online λ-return** algorithms on a 19-state random walk.
+2. Off-line λ-return updates weights only at the **end of each episode**, blending Monte Carlo and one-step TD methods.
+3. TD(λ) updates weights **online** using accumulating eligibility traces and TD errors, approximating the off-line λ-return.
+4. Online λ-return (true online TD) updates weights at **every step** during the episode, making it more computationally intensive but often more accurate.
+5. `parameter_sweep` runs multiple episodes with different λ (trace-decay) and α (step-size) values, calculating **RMSE** against true state values.
+6. Experiments show intermediate λ values give the best performance for both off-line and TD(λ) methods; online λ-return generally outperforms off-line during and after episodes.
+7. Results are visualized in figures, saved as PNGs (`figure_12_3.png`, `figure_12_6.png`, `figure_12_8.png`) to compare algorithm performance.
